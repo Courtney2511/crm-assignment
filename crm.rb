@@ -56,7 +56,7 @@ class CRM
 
   # This method should accept as an argument an array of contacts
   # and display each contact in that array
-  def display_contacts
+  def display_contacts  
 
     # HINT: Make use of this method in the display_all_contacts and search_by_attribute methods to keep your code DRY
   end
