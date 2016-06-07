@@ -65,3 +65,9 @@ class Contact
   # Feel free to add other methods here, if you need them.
 
 end
+
+contact = Contact.new('Betty', 'Maker', 'bettymakes@gmail.com', 'Loves Pokemon')
+puts contact
+
+puts contact.email
+puts contact.note

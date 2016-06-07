@@ -6,15 +6,15 @@ class CRM
     @contacts = []
   end
 
-  def main_menu
+  def main_menu #calls to print_main_menu
     while true
       print_main_menu
       user_selected = gets.to_i
-      call_option(user_selected)
-
+      call_option(user_selected) #takes the users number as input for call_option
+    end
   end
 
-  def print_main_menu
+  def print_main_menu   #prints the main menu options
     puts '[1] Add a new contact'
     puts '[2] Modify an existing contact'
     puts '[3] Delete a contact'
@@ -24,23 +24,25 @@ class CRM
     puts 'Enter a number:'
   end
 
-  def call_option
+  def call_option(user_selected)
     case user_selected
     when 1 then add_new_contact
     when 2 then modify_existing_contact
     when 3 then delete_contact
     when 4 then display_all_contacts
     when 5 then search_by_attribute
+    when 6 then Exit
+    end
   end
 
   def add_new_contact
     print 'Enter first name:'
     first_name = gets.chomp
-    print 'Enter last name'
+    print 'Enter last name: '
     last_name = gets.chomp
-    print 'Enter email address'
+    print 'Enter email address: '
     email = gets.chomp
-    print 'Enter note'
+    print 'Enter note: '
     note = gets.chomp
 
     Contact.create(first_name, last_name, email, note)
@@ -75,3 +77,6 @@ class CRM
   # Add other methods here, if you need them.
 
 end
+
+crm = CRM.new
+crm.main_menu
