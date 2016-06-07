@@ -8,7 +8,7 @@ class CRM
   end
 
   def main_menu #calls to print_main_menu
-    while true
+    while true  #because the program evaluates to true??  understand this concept.
       print_main_menu
       user_selected = gets.to_i
       call_option(user_selected) #takes the users number as input for call_option
@@ -16,6 +16,7 @@ class CRM
   end
 
   def print_main_menu   #prints the main menu options
+    puts "\e[H\e[2J" #to clear screen
     puts '[1] Add a new contact'
     puts '[2] Modify an existing contact'
     puts '[3] Delete a contact'
@@ -37,6 +38,7 @@ class CRM
   end
 
   def add_new_contact
+    puts "\e[H\e[2J" #to clear screen
     print 'Enter first name:'
     first_name = gets.chomp
     print 'Enter last name: '
@@ -51,6 +53,7 @@ class CRM
 
   def modify_existing_contact
     print "Enter the contact ID"
+    id = gets.chomp.to_i
 
   end
 
@@ -62,10 +65,12 @@ class CRM
   # and display each contact in that array
   def display_contacts
 
+
     # HINT: Make use of this method in the display_all_contacts and search_by_attribute methods to keep your code DRY
   end
 
   def display_all_contacts
+    Contact.all
 
     # HINT: Make use of the display_contacts method to keep your code DRY
   end

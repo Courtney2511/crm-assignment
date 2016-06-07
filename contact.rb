@@ -8,29 +8,29 @@ class Contact
 
   #--- Class Methods ---#
 
-  def initialize(first_name, last_name, email, note) #keep it simple.  Initialize in one method
+  def initialize(first_name, last_name, email, note)
     @first_name = first_name
     @last_name = last_name
     @email = email
     @note = note
-    @id = @@id
+    @id = @@id #increases the id number each time a contact is created
     @@id += 1
   end
 
-  def self.create(first_name, last_name, email, note) #create in another!
+  def self.create(first_name, last_name, email, note)
     new_contact = Contact.new(first_name, last_name, email, note) #this is where the initializer is called
     @@contacts << new_contact
     return new_contact
-    puts new_contact #test code
   end
 
-  def self.all
-    @@contacts
+  def self.all  #iterate over the contacts array to display the first and last name WORKING ON THIS
+    @@contacts.each { |x| puts x }
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(id)
+    p @@contacts[id] #will this work?????
 
 
   end
@@ -44,6 +44,7 @@ class Contact
   # and then make the appropriate change to the contact
   def update
 
+
   end
 
   # This method should work similarly to the find method above
@@ -54,9 +55,8 @@ class Contact
 
   end
 
-  # This method should delete all of the contacts
-  def self.delete_all
-
+  def self.delete_all # This method should delete all of the contacts
+    @@contacts.clear
   end
 
   def full_name
@@ -73,8 +73,10 @@ class Contact
 
 end
 
-contact = Contact.new('Betty', 'Maker', 'bettymakes@gmail.com', 'Loves Pokemon')
-puts contact
+#---- Test Code ----#
 
-puts contact.email
-puts contact.note
+betty = Contact.new('Betty', 'Maker', 'bettymakes@gmail.com', 'Loves Pokemon')
+courtney = Contact.new('Courtney', 'Noonan', 'courtneynoonan@me.com', 'working hard')
+james = Contact.new('James', 'Bibby', 'james@me.com', 'cuteness')
+
+Contact.all
