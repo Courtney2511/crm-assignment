@@ -2,7 +2,8 @@ require_relative 'contact'
 
 class CRM
 
-  def initialize
+  def initialize(name)
+    @name = name
     @contacts = []
   end
 
@@ -78,5 +79,5 @@ class CRM
 
 end
 
-crm = CRM.new
+crm = CRM.new("crm")
 crm.main_menu

@@ -1,3 +1,4 @@
+
 class Contact
   attr_reader :id
   attr_accessor :first_name, :last_name, :email, :note
@@ -5,7 +6,9 @@ class Contact
   @@contacts = []
   @@id = 1
 
-  def initialize(first_name, last_name, email, note)
+  #--- Class Methods ---#
+
+  def initialize(first_name, last_name, email, note) #keep it simple.  Initialize in one method
     @first_name = first_name
     @last_name = last_name
     @email = email
@@ -14,10 +17,11 @@ class Contact
     @@id += 1
   end
 
-  def self.create
-    new_contact = Contact.new(first_name, last_name, email, note)
+  def self.create(first_name, last_name, email, note) #create in another!
+    new_contact = Contact.new(first_name, last_name, email, note) #this is where the initializer is called
     @@contacts << new_contact
     return new_contact
+    puts new_contact #test code
   end
 
   def self.all
@@ -30,6 +34,9 @@ class Contact
 
 
   end
+
+
+  #--- Instance Methods ---#
 
   # This method should allow you to specify
   # 1. which of the contact's attributes you want to update
