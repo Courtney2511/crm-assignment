@@ -2,13 +2,12 @@ require_relative 'contact'
 
 class CRM
 
-  def initialize(name)
-    @name = name
+  def initialize
     @contacts = []
   end
 
   def main_menu #calls to print_main_menu
-    while true  #because the program evaluates to true??  understand this concept.
+    while true  #because the program evaluates to true??  understand this concept!!!!!!
       print_main_menu
       user_selected = gets.to_i
       call_option(user_selected) #takes the users number as input for call_option
@@ -16,7 +15,7 @@ class CRM
   end
 
   def print_main_menu   #prints the main menu options
-    puts "\e[H\e[2J" #to clear screen
+    puts "\e[H\e[2J"    #clears the screen
     puts '[1] Add a new contact'
     puts '[2] Modify an existing contact'
     puts '[3] Delete a contact'
@@ -26,7 +25,7 @@ class CRM
     puts 'Enter a number:'
   end
 
-  def call_option(user_selected)
+  def call_option(user_selected) #calls the user selected method from main menu
     case user_selected
     when 1 then add_new_contact
     when 2 then modify_existing_contact
@@ -37,7 +36,7 @@ class CRM
     end
   end
 
-  def add_new_contact
+  def add_new_contact # [1] Add a new contact
     puts "\e[H\e[2J" #to clear screen
     print 'Enter first name:'
     first_name = gets.chomp
@@ -84,5 +83,5 @@ class CRM
 
 end
 
-crm = CRM.new("crm")
+crm = CRM.new
 crm.main_menu
